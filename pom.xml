@@ -1,0 +1,170 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>fr.app.tf.cucumber</groupId>
+    <artifactId>app-test</artifactId>
+    <version>0.1</version>
+    <packaging>jar</packaging>
+    <name>app-test</name>
+
+    <properties>
+        
+	    <!-- URL de la page home de l'application par defaut, peut etre remplacee 
+	         par le parametre URL_HOME dans m2eclipse ou -DURL_HOME=http://site en lancement classique mvn -->
+		<URL_HOME>https://www.doc-depot.com/</URL_HOME>
+		
+		<!-- Passage du format de sortie et des tags a tester -->
+		<!--  exemple 2 tires (-) tags @file8,@accueil -->
+		<cucumber.options>--plugin html:target/cucumber --tags @file1</cucumber.options>
+		
+        
+        
+        <java.version>1.7</java.version>
+        <junit.version>4.12</junit.version>
+        <cucumber.version>1.2.4</cucumber.version>
+        
+        <log4j.version>1.2.17</log4j.version>
+        <selenium.version>2.52.0</selenium.version>
+        <maven.compiler.version>3.5.1</maven.compiler.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>info.cukes</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>${cucumber.version}</version>
+
+        </dependency>
+
+        <dependency>
+            <groupId>info.cukes</groupId>
+            <artifactId>cucumber-junit</artifactId>
+            <version>${cucumber.version}</version>
+
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+
+        </dependency>
+        
+        <dependency>
+                <groupId>log4j</groupId>
+                <artifactId>log4j</artifactId>
+                <version>${log4j.version}</version>
+        </dependency>
+        <dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.1</version>
+
+		</dependency>
+		
+        <dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>${selenium.version}</version>
+		</dependency>
+        
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven.compiler.version}</version>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <compilerArgument>-Werror</compilerArgument>
+                </configuration>
+            </plugin>
+            
+            <plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>2.7</version>
+				<configuration>
+					<escapeWindowsPaths>true</escapeWindowsPaths>
+				</configuration>
+			</plugin>
+		
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.8</version>
+				<configuration>
+					<systemPropertyVariables>
+						<URL_HOME>${URL_HOME}</URL_HOME>
+					</systemPropertyVariables>
+				</configuration>
+			</plugin>
+			
+        </plugins>
+        
+        <filters>
+			<filter>src/test/filters/filter-${server}.properties</filter>
+		</filters>
+
+		<testResources>
+			<testResource>
+				<!-- on copie et filtre les fichiers de properties sauf le global_local_eclipse.properties 
+					pour un usage local Eclipse Junit -->
+				<directory>src/test/resources</directory>
+
+				<filtering>true</filtering>
+
+				<includes>
+					<include>**/*.properties</include>
+				</includes>
+				<excludes>
+					<exclude>**/global_local_eclipse.properties</exclude>
+				</excludes>
+			</testResource>
+			<testResource>
+				<!-- on copie (sans filtre) les fichiers .feature -->
+				<directory>src/test/resources</directory>
+				<filtering>false</filtering>
+				<includes>
+					<include>**/*.feature</include>
+				</includes>
+			</testResource>
+		</testResources>    
+
+    </build>
+    
+    	<organization>
+		<name>ADILEOS</name>
+		<url>https://adileos.jimdo.com/</url>
+	</organization>
+
+	<profiles>
+		<profile>
+			<id>item-62500</id>
+			<properties>
+				<server>item-62500</server>
+			</properties>
+		</profile>
+	</profiles>
+
+	<description>Test du portail DOC-DEPOT avec une description en langage Gherkin qui est lue par cucumber java et qui pilote un navigateur (Firefox, Chrome) avec Selenium</description>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.seleniumhq.selenium</groupId>
+				<artifactId>selenium-java</artifactId>
+				<version>${selenium.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+</project>
