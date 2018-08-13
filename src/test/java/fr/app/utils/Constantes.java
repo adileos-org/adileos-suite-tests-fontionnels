@@ -12,6 +12,8 @@ public class Constantes {
     public static final int CASE_A_COCHER_DECOCHER = 2;
     public static final int CASE_A_COCHER_INVERSER = 3;
 
+    public static final String DEFAULT_PATH_BROWSER = "D:/FirefoxPortableESR/App/Firefox64/firefox.exe";
+
     public static boolean startRecordVideo = true; // lance vlc et enregistre video ecran
     public static boolean saveAlwaysVideo = true; // true = failed ou OK, et false = uniquement failed sinon pas de
                                                   // video

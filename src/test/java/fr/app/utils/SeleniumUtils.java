@@ -14,6 +14,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.google.common.base.Function;
 
+import fr.app.web.steps.TestProperties;
+
 public class SeleniumUtils {
     private static final Logger LOG = Logger.getLogger(SeleniumUtils.class.getName());
 
@@ -149,6 +151,8 @@ public class SeleniumUtils {
         if (url.startsWith("http") || url.startsWith("HTTP")) {
             LOG.info("url indiquee dans le step (commence par http)");
             webDriver.get(url);
+        } else if (TestProperties.isInitialized()) {
+            webDriver.get(TestProperties.getInstance().getUrl());
         } else if (url.startsWith("env:") || url.startsWith("ENV:")) {
             LOG.info("recherche de l'url par variable d'environnement (ENV:PARAM)");
             // like env:HOME_SITE or ENV:ACCUEIL_HOME
@@ -178,8 +182,11 @@ public class SeleniumUtils {
         }
     }
 
-    public static void findElement(WebDriver webDriver, final By locator) {
-        findElementWithTimeout(webDriver, locator, 5, 1);
+    public static void findElement(WebDriver webDriver, final By locator) throws InterruptedException {
+        if (webDriver.findElements(locator).size() == 0) {
+            Thread.sleep(5000);
+            findElementWithTimeout(webDriver, locator, 20, 5);
+        }
     }
 
     public static WebElement getElementByGraduallyWait(WebDriver webDriver, final By locator, int timeout,

@@ -95,6 +95,9 @@ public class WebDriverFactory {
 
             String pathFirefoxBin = Utilitaires.getConfigurationProperty(WEBDRIVER_FIREFOX_BIN, WEBDRIVER_FIREFOX_BIN,
                     Constantes.webdriver_firefox_bin);
+            if (pathFirefoxBin == null && TestProperties.isInitialized()) {
+                pathFirefoxBin = TestProperties.getInstance().getPathBrowser();
+            }
             System.setProperty(WEBDRIVER_FIREFOX_BIN, pathFirefoxBin);
             logger.info("pathFirefoxBin = " + pathFirefoxBin);
             webDriver = new FirefoxDriver(profile);

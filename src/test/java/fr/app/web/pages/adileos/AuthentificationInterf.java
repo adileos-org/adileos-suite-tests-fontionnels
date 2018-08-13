@@ -2,7 +2,7 @@ package fr.app.web.pages.adileos;
 
 public interface AuthentificationInterf {
 
-    void verifPageDocDepot();
+    void verifPageDocDepot() throws InterruptedException;
 
     void verifPageFissa();
 

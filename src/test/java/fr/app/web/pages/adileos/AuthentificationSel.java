@@ -13,7 +13,7 @@ public class AuthentificationSel implements AuthentificationInterf {
         this.webDriver = webDriver;
     }
 
-    public void verifPageDocDepot() {
+    public void verifPageDocDepot() throws InterruptedException {
         // Vérifier présence logo page d'accueil
         SeleniumUtils.findElement(webDriver, By
                 .xpath("//div[@id=\"logo\"]/center/a/img[@src=\"images/logo.png\"][@width=\"200\"][@height=\"150\"]"));

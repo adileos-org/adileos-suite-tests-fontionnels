@@ -35,7 +35,7 @@ public class ModifMdpDocDepotSel implements ModifMdpDocDepotInterf {
         webDriver.findElement(By.id("changer_mdp")).sendKeys(Keys.ENTER);
     }
 
-    public void verifMsgErreur(String msgErr) {
+    public void verifMsgErreur(String msgErr) throws InterruptedException {
         By by = By.xpath("//div[@id=\"msg_erreur\"]/center/font[contains(text(), \"" + msgErr + "\")]");
         SeleniumUtils.findElement(webDriver, by);
     }
@@ -47,7 +47,7 @@ public class ModifMdpDocDepotSel implements ModifMdpDocDepotInterf {
         webDriver.navigate().to(lien);
     }
 
-    public void verifMsgSucces(String msgSucces) {
+    public void verifMsgSucces(String msgSucces) throws InterruptedException {
         By by = By.xpath("//div[@id=\"msg_ok\"]/center[contains(text(), \"" + msgSucces + "\")]");
         SeleniumUtils.findElement(webDriver, by);
     }

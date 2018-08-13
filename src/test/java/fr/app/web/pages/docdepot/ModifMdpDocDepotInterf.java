@@ -12,9 +12,9 @@ public interface ModifMdpDocDepotInterf {
 
     void cliquerBoutonModifier();
 
-    void verifMsgErreur(String msgErr);
+    void verifMsgErreur(String msgErr) throws InterruptedException;
 
     void goLienRetourPageAccueil();
 
-    void verifMsgSucces(String msgSucces);
+    void verifMsgSucces(String msgSucces) throws InterruptedException;
 }

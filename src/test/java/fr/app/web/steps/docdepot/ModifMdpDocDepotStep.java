@@ -63,7 +63,7 @@ public class ModifMdpDocDepotStep {
     }
 
     @Then("MODIF_MDP_DOC_DEP Le message d'erreur '(.*)' s'affiche")
-    public void verifPresenceMsgErreur(String msgErr) {
+    public void verifPresenceMsgErreur(String msgErr) throws InterruptedException {
         modifMdp.verifMsgErreur(msgErr);
     }
 
@@ -73,7 +73,7 @@ public class ModifMdpDocDepotStep {
     }
 
     @Then("MODIF_MDP_DOC_DEP Le message '(.*)' s'affiche")
-    public void verifMsgSucces(String msgSucces) {
+    public void verifMsgSucces(String msgSucces) throws InterruptedException {
         modifMdp.verifMsgSucces(msgSucces);
     }
 }
