@@ -18,6 +18,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 import fr.app.utils.Constantes;
 import fr.app.utils.Utilitaires;
+import fr.app.web.steps.ihm.TestProperties;
 
 public class WebDriverFactory {
 

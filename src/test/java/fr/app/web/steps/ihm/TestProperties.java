@@ -1,4 +1,4 @@
-package fr.app.web.steps;
+package fr.app.web.steps.ihm;
 
 import java.util.Objects;
 

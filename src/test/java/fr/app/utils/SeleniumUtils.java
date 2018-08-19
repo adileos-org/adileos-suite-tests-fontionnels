@@ -14,7 +14,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.google.common.base.Function;
 
-import fr.app.web.steps.TestProperties;
+import fr.app.web.steps.ihm.TestProperties;
 
 public class SeleniumUtils {
     private static final Logger LOG = Logger.getLogger(SeleniumUtils.class.getName());

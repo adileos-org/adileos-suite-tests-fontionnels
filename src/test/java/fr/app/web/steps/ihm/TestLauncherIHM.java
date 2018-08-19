@@ -1,4 +1,4 @@
-package ihm;
+package fr.app.web.steps.ihm;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
@@ -9,13 +9,13 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import org.junit.runner.JUnitCore;
 
 import fr.app.utils.Constantes;
-import fr.app.web.steps.TestProperties;
 
 public class TestLauncherIHM extends JFrame {
     private JTextField textFieldUrlTarget;
@@ -44,6 +44,12 @@ public class TestLauncherIHM extends JFrame {
         JButton btnLancerLesTests = new JButton("Lancer les tests");
         btnLancerLesTests.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                if (textFieldUrlTarget.getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(null,
+                            "Le champ \"URL cible\" doit être renseigné\npar l'url de l'application ciblée par les tests",
+                            "Erreur", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
                 TestLauncherIHM.this.setVisible(false);
                 TestProperties.createTestProperties(textFieldUrlTarget.getText(), Constantes.DEFAULT_PATH_BROWSER);
                 JUnitCore.main("fr.app.web.steps.AppTest");

@@ -16,7 +16,6 @@ import cucumber.api.junit.Cucumber;
 import fr.app.utils.Constantes;
 import fr.app.utils.video.LanceCmdLongue;
 import fr.app.utils.video.VideoUtils;
-import ihm.TestLauncherIHM;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(plugin = {
@@ -24,13 +23,6 @@ import ihm.TestLauncherIHM;
 
 public class AppTest {
     private static Logger LOG = Logger.getLogger(AppTest.class.getName());
-
-    public static void main(String[] args) {
-        TestLauncherIHM ihm = new TestLauncherIHM();
-        ihm.pack();
-        ihm.setResizable(false);
-        ihm.setVisible(true);
-    }
 
     /**
      * BeforeClass est appelé avant lancer le test On lit le fichier de constantes et on démarre Videolan si on veut des
