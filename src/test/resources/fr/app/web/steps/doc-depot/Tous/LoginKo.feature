@@ -1,5 +1,6 @@
 @doc-depot1
 @doc-depot
+@tous
 @login
 
 Feature: [ DOC-DEPOT | LOGIN ] Logins incorrects

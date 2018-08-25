@@ -1,5 +1,6 @@
 @doc-depot3
 @doc-depot
+@tous
 @deconnexion
 
 Feature: [ DOC-DEPOT ] Déconnexion

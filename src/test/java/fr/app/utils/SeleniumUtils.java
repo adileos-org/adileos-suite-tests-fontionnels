@@ -174,19 +174,20 @@ public class SeleniumUtils {
         webDriver.navigate().back();
     }
 
-    public static void findElementWithTimeout(WebDriver webDriver, final By locator, int timeout,
+    public static WebElement findElementWithTimeout(WebDriver webDriver, final By locator, int timeout,
             int checkTime) {
         WebElement w = SeleniumUtils.getElementByGraduallyWait(webDriver, locator, timeout, checkTime);
         if (w == null) {
             throw new NoSuchElementException("Not found : " + locator.toString());
         }
+        return w;
     }
 
-    public static void findElement(WebDriver webDriver, final By locator) throws InterruptedException {
+    public static WebElement findElement(WebDriver webDriver, final By locator) throws InterruptedException {
         if (webDriver.findElements(locator).size() == 0) {
             Thread.sleep(5000);
-            findElementWithTimeout(webDriver, locator, 20, 5);
         }
+        return findElementWithTimeout(webDriver, locator, 20, 5);
     }
 
     public static WebElement getElementByGraduallyWait(WebDriver webDriver, final By locator, int timeout,

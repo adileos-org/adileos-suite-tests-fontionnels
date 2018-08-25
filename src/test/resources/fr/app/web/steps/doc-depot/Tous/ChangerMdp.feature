@@ -1,5 +1,6 @@
 @doc-depot2
 @doc-depot
+@tous
 @change-mdp
 
 Feature: [ DOC-DEPOT ] Changer de mot de passe
