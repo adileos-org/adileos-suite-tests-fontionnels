@@ -3,7 +3,7 @@
 @responsable
 @voir-acteurs-sociaux
 
-Feature: [ DOC-DEPOT ] Visualiser les acteurs sociaux
+Feature: [ DOC-DEPOT ] Visualiser les acteurs sociaux en tant que responsable
 
 Background:
 		Given Sur la page 'Authentification' URL 'ENV:URL_HOME'

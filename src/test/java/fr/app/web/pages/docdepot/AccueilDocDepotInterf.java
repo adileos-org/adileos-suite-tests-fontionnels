@@ -13,4 +13,6 @@ public interface AccueilDocDepotInterf {
     void verifSaisie(String saisie, String libelle, String inputName) throws InterruptedException;
 
     void verifMsgErreur(String msgErr) throws InterruptedException;
+
+    void verifMsgSucces(String msg) throws InterruptedException;
 }

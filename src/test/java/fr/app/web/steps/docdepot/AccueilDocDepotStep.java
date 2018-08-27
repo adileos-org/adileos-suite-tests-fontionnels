@@ -106,4 +106,9 @@ public class AccueilDocDepotStep {
     public void verifMsgErreur(String msgErr) throws InterruptedException {
         accueil.verifMsgErreur(msgErr);
     }
+
+    @Then("^ACCDOCDEP Vérifie la présence du message de succès '(.*)'$")
+    public void verifMsgSucces(String msg) throws InterruptedException {
+        accueil.verifMsgSucces(msg);
+    }
 }

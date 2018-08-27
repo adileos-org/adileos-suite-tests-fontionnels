@@ -48,6 +48,11 @@ public class AccueilDocDepotSel implements AccueilDocDepotInterf {
                         By.xpath("//div[@id=\"msg_erreur\"]/center/font[contains(text(), \"" + msgErr + "\")]"));
     }
 
+    public void verifMsgSucces(String msg) throws InterruptedException {
+        SeleniumUtils.findElement(webDriver,
+                By.xpath("//div[@id=\"msg_ok\"]/center[contains(text(), \"" + msg + "\")]"));
+    }
+
     public void deconnexion() {
         String lien = webDriver.findElement(By.xpath("//ul/li/a[contains(text(), \"Déconnexion\")]"))
                 .getAttribute("href");
