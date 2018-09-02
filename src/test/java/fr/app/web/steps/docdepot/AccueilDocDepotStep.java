@@ -33,12 +33,12 @@ public class AccueilDocDepotStep {
     }
 
     @Given("^ACCDOCDEP Sur la page d'accueil 'DOC-DEPOT' avec le message '(.*)'$")
-    public void verifPageAccueilDocDepotArrivee(String msgTypeActeur) {
+    public void verifPageAccueilDocDepotArrivee(String msgTypeActeur) throws InterruptedException {
         accueil.verifPage(msgTypeActeur);
     }
 
     @Then("^ACCDOCDEP La page d'accueil 'DOC-DEPOT' s'affiche avec le message '(.*)'$")
-    public void verifPageAccueilDocDepot(String msgTypeActeur) {
+    public void verifPageAccueilDocDepot(String msgTypeActeur) throws InterruptedException {
         accueil.verifPage(msgTypeActeur);
     }
 
@@ -110,5 +110,20 @@ public class AccueilDocDepotStep {
     @Then("^ACCDOCDEP Vérifie la présence du message de succès '(.*)'$")
     public void verifMsgSucces(String msg) throws InterruptedException {
         accueil.verifMsgSucces(msg);
+    }
+
+    @When("^ACCDOCDEP Saisir le filtre de recherche '(.*)'$")
+    public void saisirFiltreRecherche(String filtre) throws InterruptedException {
+        accueil.saisirFiltreRecherche(filtre);
+    }
+
+    @Then("^ACCDOCDEP Vérifie que le nombre de lignes filtrées est de '(.*)'$")
+    public void verifNbLignesFiltrees(int nbLignes) throws InterruptedException {
+        accueil.verifNbLignesFiltrees(nbLignes);
+    }
+
+    @When("^ACCDOCDEP Cliquer sur le bouton '(.*)' pour la suppression du filtre$")
+    public void cliquerBoutonSupprimerFiltre(String infoBulle) throws InterruptedException {
+        accueil.cliquerBoutonSupprimerFiltre(infoBulle);
     }
 }

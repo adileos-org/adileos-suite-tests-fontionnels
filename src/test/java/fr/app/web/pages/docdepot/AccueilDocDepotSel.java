@@ -16,8 +16,9 @@ public class AccueilDocDepotSel implements AccueilDocDepotInterf {
         this.webDriver = webDriver;
     }
 
-    public void verifPage(String msgTypeActeur) {
-        webDriver.findElement(By.xpath("//table/tbody/tr/td/b[contains(text(), \"" + msgTypeActeur + "\")]"));
+    public void verifPage(String msgTypeActeur) throws InterruptedException {
+        SeleniumUtils
+                .findElement(webDriver, By.xpath("//table/tbody/tr/td/b[contains(text(), \"" + msgTypeActeur + "\")]"));
     }
 
     public void goLienModifMdp() {
@@ -57,5 +58,22 @@ public class AccueilDocDepotSel implements AccueilDocDepotInterf {
         String lien = webDriver.findElement(By.xpath("//ul/li/a[contains(text(), \"Déconnexion\")]"))
                 .getAttribute("href");
         webDriver.navigate().to(lien);
+    }
+
+    @Override
+    public void saisirFiltreRecherche(String filtre) throws InterruptedException {
+        SeleniumUtils.findElement(webDriver, By.xpath("//input[@name=\"filtre\"]"))
+                .sendKeys(Keys.chord(Keys.CONTROL, "a"), filtre, Keys.ENTER);
+    }
+
+    @Override
+    public void verifNbLignesFiltrees(int nbLignes) throws InterruptedException {
+        Assert.assertTrue(webDriver.findElements(By.xpath("(//div[@class=\"CSSTableGenerator\"])[1]/table/tbody/tr"))
+                .size() == (nbLignes + 1));
+    }
+
+    @Override
+    public void cliquerBoutonSupprimerFiltre(String infoBulle) throws InterruptedException {
+        SeleniumUtils.findElement(webDriver, By.xpath("//form/input[@title=\"" + infoBulle + "\"]")).submit();
     }
 }

@@ -1,9 +1,9 @@
 @doc-depot4
 @doc-depot
-@tous
+@responsable
 @change-coordonnees
 
-Feature: [ DOC-DEPOT ] Changer les coordonnées du responsable et de la structure de formation
+Feature: [ DOC-DEPOT ] Changer les coordonnées du responsable
 
 Background:
 		Given Sur la page 'Authentification' URL 'ENV:URL_HOME'

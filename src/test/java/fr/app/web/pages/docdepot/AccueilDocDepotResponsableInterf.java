@@ -25,4 +25,8 @@ public interface AccueilDocDepotResponsableInterf {
     void verifInfoActeurSocial(String nom, String prenom, String tel, String mail) throws InterruptedException;
 
     void verifAbsenceActeurSocial(String nom, String prenom, String tel, String mail) throws InterruptedException;
+
+    void selectionnerProfil(String profil) throws InterruptedException;
+
+    void verifierPresenceActeurSocial(String nom, String identifiant, String prenom) throws InterruptedException;
 }

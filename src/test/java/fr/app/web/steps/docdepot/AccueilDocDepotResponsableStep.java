@@ -112,4 +112,19 @@ public class AccueilDocDepotResponsableStep {
             throws InterruptedException {
         accueil.verifAbsenceActeurSocial(nom, prenom, tel, mail);
     }
+
+    @When("^ACCDOCDEPRESP Sélectionner le profil '(.*)'$")
+    public void selectionnerProfil(String profil) throws InterruptedException {
+        accueil.selectionnerProfil(profil);
+    }
+
+    @Then("^ACCDOCDEPRESP Vérifie la sélection du profil '(.*)'$")
+    public void verifieProfil(String profil) throws InterruptedException {
+        accueil.verifPage(profil);
+    }
+
+    @Then("^ACCDOCDEPRESP Vérifie la présence de l'acteur social de nom '(.*)', d'identifiant '(.*)' et de prénom '(.*)'$")
+    public void verifPresenceBeneficiaire(String nom, String identifiant, String prenom) throws InterruptedException {
+        accueil.verifierPresenceActeurSocial(nom, identifiant, prenom);
+    }
 }

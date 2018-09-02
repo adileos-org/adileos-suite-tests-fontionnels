@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 import fr.app.utils.SeleniumUtils;
 
@@ -110,4 +111,19 @@ public class AccueilDocDepotResponsableSel implements AccueilDocDepotResponsable
             throws InterruptedException {
         Assert.assertTrue(webDriver.findElements(getXPathInfoActeurSocial(nom, prenom, tel, mail)).size() == 0);
     }
+
+    @Override
+    public void selectionnerProfil(String profil) throws InterruptedException {
+        new Select(SeleniumUtils.findElement(webDriver, By.xpath("//select[@name=\"profil\"]")))
+                .selectByVisibleText(profil);
+    }
+
+    @Override
+    public void verifierPresenceActeurSocial(String nom, String identifiant, String prenom)
+            throws InterruptedException {
+        SeleniumUtils.findElement(webDriver,
+                By.xpath("//tr/td[1][text()=\" " + nom + "  (Identifiant='" + identifiant
+                        + "')   \"]/parent::tr/td[2][contains(text(), \"" + prenom + "\")]"));
+    }
+
 }
