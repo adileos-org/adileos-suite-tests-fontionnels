@@ -16,27 +16,27 @@ Background:
 Scenario: Changer les coordonnées
     Given ACCDOCDEP Sur la page d'accueil 'DOC-DEPOT' avec le message 'LEGRAIS - Marie'
     
-    Then ACCDOCDEP Vérifie la valeur de 'Tel pro' qui doit contenir '0606060606'
-    When ACCDOCDEP Change 'Tel pro' par '060606060'
+    Then ACCDOCDEP_TEL Vérifie la valeur de 'Tel pro' qui doit contenir '0606060606'
+    When ACCDOCDEP_TEL Change 'Tel pro' par '060606060'
     Then ACCDOCDEP Vérifie la présence du message d'erreur 'Erreur : Format de téléphone incorrect'
-    Then ACCDOCDEP Vérifie la valeur de 'Tel pro' qui doit contenir '0606060606'
+    Then ACCDOCDEP_TEL Vérifie la valeur de 'Tel pro' qui doit contenir '0606060606'
     
-    Then ACCDOCDEP Vérifie la valeur de 'Mail pro' qui doit contenir 'pp_Form_A1@fixeo.com'
-    When ACCDOCDEP Change 'Mail pro' par 'pp_Form_A1gmail.com'
+    Then ACCDOCDEP_MAIL Vérifie la valeur de 'Mail pro' qui doit contenir 'pp_Form_A1@fixeo.com'
+    When ACCDOCDEP_MAIL Change 'Mail pro' par 'pp_Form_A1gmail.com'
     Then ACCDOCDEP Vérifie la présence du message d'erreur 'Erreur : Format de mail incorrect ou absent'
-    Then ACCDOCDEP Vérifie la valeur de 'Mail pro' qui doit contenir 'pp_Form_A1@fixeo.com'
+    Then ACCDOCDEP_MAIL Vérifie la valeur de 'Mail pro' qui doit contenir 'pp_Form_A1@fixeo.com'
     
     #Change les coordonnées avec succès
-    When ACCDOCDEP Change 'Tel pro' par '0606060607'
-    When ACCDOCDEP Change 'Mail pro' par 'pp_Form_A1@gmail.com'
-    Then ACCDOCDEP Vérifie la valeur de 'Tel pro' qui doit contenir '0606060607'
-    Then ACCDOCDEP Vérifie la valeur de 'Mail pro' qui doit contenir 'pp_Form_A1@gmail.com'
+    When ACCDOCDEP_TEL Change 'Tel pro' par '0606060607'
+    When ACCDOCDEP_MAIL Change 'Mail pro' par 'pp_Form_A1@gmail.com'
+    Then ACCDOCDEP_TEL Vérifie la valeur de 'Tel pro' qui doit contenir '0606060607'
+    Then ACCDOCDEP_MAIL Vérifie la valeur de 'Mail pro' qui doit contenir 'pp_Form_A1@gmail.com'
     
     #Rétabli les anciennes coordoonnées
-    When ACCDOCDEP Change 'Tel pro' par '0606060606'
-    When ACCDOCDEP Change 'Mail pro' par 'pp_Form_A1@fixeo.com'
-    Then ACCDOCDEP Vérifie la valeur de 'Tel pro' qui doit contenir '0606060606'
-    Then ACCDOCDEP Vérifie la valeur de 'Mail pro' qui doit contenir 'pp_Form_A1@fixeo.com'
+    When ACCDOCDEP_TEL Change 'Tel pro' par '0606060606'
+    When ACCDOCDEP_MAIL Change 'Mail pro' par 'pp_Form_A1@fixeo.com'
+    Then ACCDOCDEP_TEL Vérifie la valeur de 'Tel pro' qui doit contenir '0606060606'
+    Then ACCDOCDEP_MAIL Vérifie la valeur de 'Mail pro' qui doit contenir 'pp_Form_A1@fixeo.com'
     
     When ACCDOCDEP Cliquer sur le bouton 'Déconnexion'
     Then AUTH01 La page 'Authentification DOC-DEPOT' s'affiche

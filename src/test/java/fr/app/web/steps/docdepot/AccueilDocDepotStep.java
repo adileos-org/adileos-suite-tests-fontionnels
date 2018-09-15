@@ -52,24 +52,34 @@ public class AccueilDocDepotStep {
         accueil.goLienModifMdp();
     }
 
-    @When("^ACCDOCDEP Change 'Tel pro' par '(.*)'$")
-    public void changeCoordonneeTelPro(String nouvTel) throws InterruptedException {
-        accueil.changeCoordonnee(nouvTel, " Tel pro :", "telephone");
+    @When("^ACCDOCDEP_TEL Change '(.*)' par '(.*)'$")
+    public void changeCoordonneeTel(String label, String nouvTel) throws InterruptedException {
+        accueil.changeCoordonnee(nouvTel, " " + label + " :", "telephone");
     }
 
-    @Then("^ACCDOCDEP Vérifie la valeur de 'Tel pro' qui doit contenir '(.*)'$")
-    public void verifCoordonneeTelPro(String tel) throws InterruptedException {
-        accueil.verifSaisie(tel, " Tel pro :", "telephone");
+    @Then("^ACCDOCDEP_TEL Vérifie la valeur de '(.*)' qui doit contenir '(.*)'$")
+    public void verifCoordonneeTel(String label, String tel) throws InterruptedException {
+        accueil.verifSaisie(tel, " " + label + " :", "telephone");
     }
 
-    @When("^ACCDOCDEP Change 'Mail pro' par '(.*)'$")
-    public void changeCoordonneeMailPro(String nouvMail) throws InterruptedException {
-        accueil.changeCoordonnee(nouvMail, " Mail pro : ", "telephone2");
+    @When("^ACCDOCDEP_MAIL Change '(.*)' par '(.*)'$")
+    public void changeCoordonneeMail(String label, String nouvMail) throws InterruptedException {
+        accueil.changeCoordonnee(nouvMail, " " + label + " : ", "telephone2");
     }
 
-    @Then("^ACCDOCDEP Vérifie la valeur de 'Mail pro' qui doit contenir '(.*)'$")
-    public void verifCoordonneeMailPro(String mail) throws InterruptedException {
-        accueil.verifSaisie(mail, " Mail pro : ", "telephone2");
+    @Then("^ACCDOCDEP_MAIL Vérifie la valeur de '(.*)' qui doit contenir '(.*)'$")
+    public void verifCoordonneeMail(String label, String mail) throws InterruptedException {
+        accueil.verifSaisie(mail, " " + label + " : ", "telephone2");
+    }
+
+    @When("^ACCDOCDEP_MAIL_BENEF Change '(.*)' par '(.*)'$")
+    public void changeCoordonneeMailBenef(String label, String nouvMail) throws InterruptedException {
+        accueil.changeCoordonnee(nouvMail, " " + label + " :", "telephone2");
+    }
+
+    @Then("^ACCDOCDEP_MAIL_BENEF Vérifie la valeur de '(.*)' qui doit contenir '(.*)'$")
+    public void verifCoordonneeMailBenef(String label, String mail) throws InterruptedException {
+        accueil.verifSaisie(mail, " " + label + " :", "telephone2");
     }
 
     @When("^ACCDOCDEP Change 'Adresse' par '(.*)'$")
@@ -83,22 +93,22 @@ public class AccueilDocDepotStep {
     }
 
     @When("^ACCDOCDEP Change 'Téléphone' par '(.*)'$")
-    public void changeCoordonneeTel(String nouvTel) throws InterruptedException {
+    public void changeCoordonneeTelStructForm(String nouvTel) throws InterruptedException {
         accueil.changeCoordonnee(nouvTel, " - Téléphone: ", "telephone");
     }
 
     @Then("^ACCDOCDEP Vérifie la valeur de 'Téléphone' qui doit contenir '(.*)'$")
-    public void verifCoordonneeTel(String tel) throws InterruptedException {
+    public void verifCoordonneeTelStructForm(String tel) throws InterruptedException {
         accueil.verifSaisie(tel, " - Téléphone: ", "telephone");
     }
 
     @When("^ACCDOCDEP Change 'Mail' par '(.*)'$")
-    public void changeCoordonneeMail(String nouvMail) throws InterruptedException {
+    public void changeCoordonneeMailStructForm(String nouvMail) throws InterruptedException {
         accueil.changeCoordonnee(nouvMail, " - Mail: ", "mail");
     }
 
     @Then("^ACCDOCDEP Vérifie la valeur de 'Mail' qui doit contenir '(.*)'$")
-    public void verifCoordonneeMail(String mail) throws InterruptedException {
+    public void verifCoordonneeMailStructForm(String mail) throws InterruptedException {
         accueil.verifSaisie(mail, " - Mail: ", "mail");
     }
 
