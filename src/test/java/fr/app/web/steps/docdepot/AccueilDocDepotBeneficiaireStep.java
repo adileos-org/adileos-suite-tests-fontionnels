@@ -60,4 +60,67 @@ public class AccueilDocDepotBeneficiaireStep {
     public void saisirAdresseDomPost(String adresse) throws InterruptedException {
         accueil.saisirAdresseDomPost(adresse);
     }
+
+    @When("^ACCDOCDEPBENEF_REF_CONF Cliquer sur le bouton 'Référents de confiance'$")
+    public void cliquerBoutonReferentsConfiance() throws InterruptedException {
+        accueil.cliquerBoutonReferentsConfiance();
+    }
+
+    @When("^ACCDOCDEPBENEF Sélectionner la structure sociale '(.*)'$")
+    public void selectStructSociale(String structSociale) throws InterruptedException {
+        accueil.selectStructSociale(structSociale);
+    }
+
+    @When("^ACCDOCDEPBENEF Sélectionner l'acteur social '(.*)'$")
+    public void selectActeurSocial(String actSocial) throws InterruptedException {
+        accueil.selectActeurSocial(actSocial);
+    }
+
+    @When("^ACCDOCDEPBENEF Saisir le nom '(.*)' du référent de confiance$")
+    public void saisirNomRefConfiance(String nom) throws InterruptedException {
+        accueil.saisirNomRefConfiance(nom, "nom");
+    }
+
+    @When("^ACCDOCDEPBENEF Saisir le prénom '(.*)' du référent de confiance$")
+    public void saisirPrenomRefConfiance(String prenom) throws InterruptedException {
+        accueil.saisirPrenomRefConfiance(prenom, "prenom");
+    }
+
+    @When("^ACCDOCDEPBENEF Cliquer sur le bouton 'Ajouter' pour le référent de confiance$")
+    public void cliquerBoutonAjouterRefConfiance() throws InterruptedException {
+        accueil.cliquerBoutonAjouterRefConfiance();
+    }
+
+    @When("^ACCDOCDEPBENEF Cliquer sur le bouton 'Supprimer' pour le référent de confiance de structure sociale '(.*)', de nom '(.*)' et de prénom '(.*)'$")
+    public void cliquerBoutonSupprimerRefConfiance(String structSociale, String nom, String prenom)
+            throws InterruptedException {
+        accueil.cliquerBoutonSupprimerRefConfiance(structSociale, nom, prenom);
+    }
+
+    @When("^ACCDOCDEPBENEF Cliquer le bouton de confirmation$")
+    public void cliquerBoutonConfirmation() throws InterruptedException {
+        accueil.cliquerBoutonConfirmation();
+    }
+
+    @Then("^ACCDOCDEPBENEF_PRES Vérifie la présence du référent de confiance de structure sociale '(.*)', de nom '(.*)', de prénom '(.*)' et d'adresse '(.*)'$")
+    public void verifPresenceNouvRefConfiance(String structSociale, String nom, String prenom, String adresse)
+            throws InterruptedException {
+        accueil.verifPresenceNouvRefConfiance(structSociale, nom, prenom, adresse);
+    }
+
+    @Then("^ACCDOCDEPBENEF_PRES02 Vérifie la présence du référent de confiance de structure sociale '(.*)', de nom '(.*)' et de prénom '(.*)'$")
+    public void verifPresenceNouvRefConfiance(String structSociale, String nom, String prenom)
+            throws InterruptedException {
+        accueil.verifPresenceNouvRefConfiance(structSociale, nom, prenom);
+    }
+
+    @Then("^ACCDOCDEPBENEF_ABS Vérifie l'absence du référent de confiance de structure sociale '(.*)', de nom '(.*)', de prénom '(.*)' et d'adresse '(.*)'$")
+    public void verifAbsenceRefConfiance(String structSociale, String nom, String prenom, String adresse) {
+        accueil.verifAbsenceRefConfiance(structSociale, nom, prenom, adresse);
+    }
+
+    @Then("^ACCDOCDEPBENEF_ABS02 Vérifie l'absence du référent de confiance de structure sociale '(.*)', de nom '(.*)' et de prénom '(.*)'$")
+    public void verifAbsenceRefConfiance(String structSociale, String nom, String prenom) {
+        accueil.verifAbsenceRefConfiance(structSociale, nom, prenom);
+    }
 }
