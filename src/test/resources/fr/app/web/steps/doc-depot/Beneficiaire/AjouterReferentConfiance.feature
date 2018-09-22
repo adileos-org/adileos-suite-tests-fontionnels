@@ -16,7 +16,7 @@ Background:
 Scenario: Ajouter et supprimer un référent de confiance d'une structure sociale
     Given ACCDOCDEP Sur la page d'accueil 'DOC-DEPOT' avec le message 'BENEFICIAIRE - Beneficiaire'
     
-    When ACCDOCDEPBENEF_REF_CONF Cliquer sur le bouton 'Référents de confiance'
+    When ACCDOCDEPBENEF_SECTION Cliquer sur le bouton 'Référents de confiance'
     And ACCDOCDEPBENEF Sélectionner la structure sociale 'Café 115'
     And ACCDOCDEPBENEF Sélectionner l'acteur social '- HELIN Pauline'
     And ACCDOCDEPBENEF Cliquer sur le bouton 'Ajouter' pour le référent de confiance
@@ -33,7 +33,7 @@ Scenario: Ajouter et supprimer un référent de confiance d'une structure social
 Scenario: Ajouter et supprimer un référent de confiance avec saisie libre
     Given ACCDOCDEP Sur la page d'accueil 'DOC-DEPOT' avec le message 'BENEFICIAIRE - Beneficiaire'
     
-    When ACCDOCDEPBENEF_REF_CONF Cliquer sur le bouton 'Référents de confiance'
+    When ACCDOCDEPBENEF_SECTION Cliquer sur le bouton 'Référents de confiance'
     And ACCDOCDEPBENEF Sélectionner la structure sociale ''
     And ACCDOCDEPBENEF Saisir le nom 'DUPONT' du référent de confiance
     And ACCDOCDEPBENEF Saisir le prénom 'Jean' du référent de confiance    

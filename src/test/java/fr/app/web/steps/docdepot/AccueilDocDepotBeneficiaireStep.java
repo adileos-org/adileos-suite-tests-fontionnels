@@ -61,9 +61,9 @@ public class AccueilDocDepotBeneficiaireStep {
         accueil.saisirAdresseDomPost(adresse);
     }
 
-    @When("^ACCDOCDEPBENEF_REF_CONF Cliquer sur le bouton 'Référents de confiance'$")
-    public void cliquerBoutonReferentsConfiance() throws InterruptedException {
-        accueil.cliquerBoutonReferentsConfiance();
+    @When("^ACCDOCDEPBENEF_SECTION Cliquer sur le bouton '(.*)'$")
+    public void cliquerBoutonReferentsConfiance(String section) throws InterruptedException {
+        accueil.cliquerBoutonSection(section);
     }
 
     @When("^ACCDOCDEPBENEF Sélectionner la structure sociale '(.*)'$")
@@ -122,5 +122,60 @@ public class AccueilDocDepotBeneficiaireStep {
     @Then("^ACCDOCDEPBENEF_ABS02 Vérifie l'absence du référent de confiance de structure sociale '(.*)', de nom '(.*)' et de prénom '(.*)'$")
     public void verifAbsenceRefConfiance(String structSociale, String nom, String prenom) {
         accueil.verifAbsenceRefConfiance(structSociale, nom, prenom);
+    }
+
+    @When("^ACCDOCDEPBENEF_AJT_DOC Cliquer sur le bouton 'Ajouter un doc'$")
+    public void cliquerBoutonAjouterDoc() throws InterruptedException {
+        accueil.cliquerBoutonAjouterDoc();
+    }
+
+    @When("^ACCDOCDEPBENEF Ajouter le document '(.*)'$")
+    public void ajouterDocBeneficiaire(String cheminFichier) throws InterruptedException {
+        accueil.ajouterDocBeneficiaire(cheminFichier);
+    }
+
+    @When("^ACCDOCDEPBENEF Naviguer avec le lien '(.*)'$")
+    public void naviguerVersLienRetour(String msg) throws InterruptedException {
+        accueil.naviguerVersLienRetour(msg);
+    }
+
+    @When("^ACCDOCDEPBENEF Cliquer sur la catégorie de documents '(.*)'$")
+    public void cliquerCategorieDocument(String categorie) throws InterruptedException {
+        accueil.cliquerCategorieDocument(categorie);
+    }
+
+    @Then("^ACCDOCDEPBENEF_PREF_ESP Vérifier la présence du document ajouté '(.*)'$")
+    public void verifPresenceDocAjouteAvPrefixeEsp(String nomFichier) throws InterruptedException {
+        accueil.verifPresenceDocAjoute(nomFichier, true);
+    }
+
+    @Then("^ACCDOCDEPBENEF_PREF_ESP Vérifier l'absence du document '(.*)'$")
+    public void verifAbsenceDocAvPrefixeEsp(String nomFichier) throws InterruptedException {
+        accueil.verifAbsenceDoc(nomFichier, true);
+    }
+
+    @When("^ACCDOCDEPBENEF_PREF_ESP Supprimer le document '(.*)'$")
+    public void cliquerBoutonSupprimerDocAvPrefixeEsp(String nomFichier) throws InterruptedException {
+        accueil.cliquerBoutonSupprimerDoc(nomFichier, true);
+    }
+
+    @Then("^ACCDOCDEPBENEF_ESP Vérifier la présence du document ajouté '(.*)'$")
+    public void verifPresenceDocAjoute(String nomFichier) throws InterruptedException {
+        accueil.verifPresenceDocAjoute(nomFichier, false);
+    }
+
+    @Then("^ACCDOCDEPBENEF_ESP Vérifier l'absence du document '(.*)'$")
+    public void verifAbsenceDoc(String nomFichier) throws InterruptedException {
+        accueil.verifAbsenceDoc(nomFichier, false);
+    }
+
+    @When("^ACCDOCDEPBENEF_ESP Supprimer le document '(.*)'$")
+    public void cliquerBoutonSupprimerDoc(String nomFichier) throws InterruptedException {
+        accueil.cliquerBoutonSupprimerDoc(nomFichier, false);
+    }
+
+    @When("^ACCDOCDEPBENEF Cliquer sur le bouton de confirmation pour la suppression du document$")
+    public void cliquerBoutonConfirmationSupprDoc() throws InterruptedException {
+        accueil.cliquerBoutonConfirmationSupprDoc();
     }
 }

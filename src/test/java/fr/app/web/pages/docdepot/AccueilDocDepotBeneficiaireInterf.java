@@ -14,7 +14,7 @@ public interface AccueilDocDepotBeneficiaireInterf {
 
     void saisirAdresseDomPost(String adresse) throws InterruptedException;
 
-    void cliquerBoutonReferentsConfiance() throws InterruptedException;
+    void cliquerBoutonSection(String section) throws InterruptedException;
 
     void selectStructSociale(String structSociale) throws InterruptedException;
 
@@ -39,4 +39,20 @@ public interface AccueilDocDepotBeneficiaireInterf {
     void verifAbsenceRefConfiance(String structSociale, String nom, String prenom, String adresse);
 
     void verifAbsenceRefConfiance(String structSociale, String nom, String prenom);
+
+    void naviguerVersLienRetour(String msg) throws InterruptedException;
+
+    void cliquerBoutonAjouterDoc() throws InterruptedException;
+
+    void ajouterDocBeneficiaire(String cheminFichier) throws InterruptedException;
+
+    void cliquerCategorieDocument(String categorie) throws InterruptedException;
+
+    void verifPresenceDocAjoute(String nomFichier, boolean prefixeEsp) throws InterruptedException;
+
+    void verifAbsenceDoc(String nomFichier, boolean prefixeEsp) throws InterruptedException;
+
+    void cliquerBoutonSupprimerDoc(String nomFichier, boolean prefixeEsp) throws InterruptedException;
+
+    void cliquerBoutonConfirmationSupprDoc() throws InterruptedException;
 }
