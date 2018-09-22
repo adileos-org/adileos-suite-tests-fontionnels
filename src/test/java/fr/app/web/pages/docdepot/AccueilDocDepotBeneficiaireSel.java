@@ -181,6 +181,12 @@ public class AccueilDocDepotBeneficiaireSel implements AccueilDocDepotBeneficiai
     }
 
     @Override
+    public void cliquerBoutonChangerEspaceDoc(String nomFichier, boolean prefixeEsp) throws InterruptedException {
+        SeleniumUtils.findElement(webDriver,
+                By.xpath(getStrXPathDocDepose(nomFichier, prefixeEsp) + "/input[@title=\"Changer d'espace\"]")).click();
+    }
+
+    @Override
     public void cliquerBoutonConfirmationSupprDoc() throws InterruptedException {
         SeleniumUtils
                 .findElement(webDriver,

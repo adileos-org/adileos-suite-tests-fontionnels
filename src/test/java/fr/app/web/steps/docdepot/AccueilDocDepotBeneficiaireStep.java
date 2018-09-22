@@ -174,6 +174,11 @@ public class AccueilDocDepotBeneficiaireStep {
         accueil.cliquerBoutonSupprimerDoc(nomFichier, false);
     }
 
+    @When("^ACCDOCDEPBENEF_ESP Changer le document '(.*)' d'espace$")
+    public void cliquerBoutonChangerEspaceDoc(String nomFichier) throws InterruptedException {
+        accueil.cliquerBoutonChangerEspaceDoc(nomFichier, false);
+    }
+
     @When("^ACCDOCDEPBENEF Cliquer sur le bouton de confirmation pour la suppression du document$")
     public void cliquerBoutonConfirmationSupprDoc() throws InterruptedException {
         accueil.cliquerBoutonConfirmationSupprDoc();

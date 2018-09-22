@@ -54,5 +54,7 @@ public interface AccueilDocDepotBeneficiaireInterf {
 
     void cliquerBoutonSupprimerDoc(String nomFichier, boolean prefixeEsp) throws InterruptedException;
 
+    void cliquerBoutonChangerEspaceDoc(String nomFichier, boolean prefixeEsp) throws InterruptedException;
+
     void cliquerBoutonConfirmationSupprDoc() throws InterruptedException;
 }
