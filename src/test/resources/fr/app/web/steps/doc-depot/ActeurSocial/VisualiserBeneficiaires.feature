@@ -3,7 +3,7 @@
 @acteur-social
 @voir-beneficiares
 
-Feature: [ DOC-DEPOT ] Visualiser les bénéficiares en tant qu'acteur social
+Feature: [ DOC-DEPOT ] Visualiser les bénéficiaires en tant qu'acteur social
 
 Background:
 		Given Sur la page 'Authentification' URL 'ENV:URL_HOME'
