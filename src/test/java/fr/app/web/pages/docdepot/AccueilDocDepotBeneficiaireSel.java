@@ -152,7 +152,7 @@ public class AccueilDocDepotBeneficiaireSel implements AccueilDocDepotBeneficiai
                 .sendKeys(cheminFichier);
     }
 
-    private static String getStrXPathDocDepose(String nomFichier, boolean prefixeEsp) {
+    public static String getStrXPathDocDepose(String nomFichier, boolean prefixeEsp) {
         return "//table[@class=\"expand\"]/tbody/tr/td[text()="
                 + ((prefixeEsp) ? "\" " + nomFichier + "\"" : "\" " + nomFichier + " \"") + "]";
     }
