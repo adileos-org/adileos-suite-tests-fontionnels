@@ -20,7 +20,6 @@ Scenario: Visualiser les bénéficiares / Rechercher bénéficiares par nom, pr�
     Then ACCDOCDEPACTSOC Vérifie la présence du bénéficiaire de nom 'JEAN' et de prénom 'Durand'
     Then ACCDOCDEPACTSOC Vérifie la présence du bénéficiaire de nom 'BENEFICIAIRE' et de prénom 'Beneficiaire'
     Then ACCDOCDEPACTSOC Vérifie la présence du bénéficiaire de nom 'AAAAAAAAAAAA' et de prénom 'Aaaaaaaaaaaa'
-    Then ACCDOCDEP Vérifie que le nombre de lignes filtrées est de '4'
     
     #Vérifier filtre nom - minuscules
     When ACCDOCDEP Saisir le filtre de recherche 'dupont'
@@ -68,7 +67,7 @@ Scenario: Visualiser les bénéficiares / Rechercher bénéficiares par nom, pr�
     Then ACCDOCDEPACTSOC Vérifie la présence du bénéficiaire de nom 'DUPONT' et de prénom 'Jean'
     Then ACCDOCDEPACTSOC Vérifie la présence du bénéficiaire de nom 'BENEFICIAIRE' et de prénom 'Beneficiaire'
     Then ACCDOCDEPACTSOC Vérifie la présence du bénéficiaire de nom 'AAAAAAAAAAAA' et de prénom 'Aaaaaaaaaaaa'
-    Then ACCDOCDEP Vérifie que le nombre de lignes filtrées est de '3'
+    Then ACCDOCDEP Vérifie que le nombre de lignes filtrées est de '4'
     
     #Vérifier filtre pays d'origine - minuscules
     When ACCDOCDEP Saisir le filtre de recherche 'fran'
@@ -94,8 +93,7 @@ Scenario: Visualiser les bénéficiares / Rechercher bénéficiares par nom, pr�
     Then ACCDOCDEPACTSOC Vérifie la présence du bénéficiaire de nom 'DUPONT' et de prénom 'Jean'
     Then ACCDOCDEPACTSOC Vérifie la présence du bénéficiaire de nom 'JEAN' et de prénom 'Durand'
     Then ACCDOCDEPACTSOC Vérifie la présence du bénéficiaire de nom 'BENEFICIAIRE' et de prénom 'Beneficiaire'
-    Then ACCDOCDEPACTSOC Vérifie la présence du bénéficiaire de nom 'AAAAAAAAAAAA' et de prénom 'Aaaaaaaaaaaa'
-    Then ACCDOCDEP Vérifie que le nombre de lignes filtrées est de '4'    
+    Then ACCDOCDEPACTSOC Vérifie la présence du bénéficiaire de nom 'AAAAAAAAAAAA' et de prénom 'Aaaaaaaaaaaa'   
     
     When ACCDOCDEP Cliquer sur le bouton 'Déconnexion'
     Then AUTH01 La page 'Authentification DOC-DEPOT' s'affiche
