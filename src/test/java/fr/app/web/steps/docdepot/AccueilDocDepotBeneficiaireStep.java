@@ -183,4 +183,29 @@ public class AccueilDocDepotBeneficiaireStep {
     public void cliquerBoutonConfirmationSupprDoc() throws InterruptedException {
         accueil.cliquerBoutonConfirmationSupprDoc();
     }
+
+    @When("^ACCDOCDEPBENEF Saisir la note '(.*)'$")
+    public void saisirNote(String note) throws InterruptedException {
+        accueil.saisirNote(note);
+    }
+
+    @When("^ACCDOCDEPBENEF_AJT_NOTE Cliquer sur le bouton 'Ajouter'$")
+    public void cliquerBoutonAjouterNote() throws InterruptedException {
+        accueil.cliquerBoutonAjouterNote();
+    }
+
+    @When("^ACCDOCDEPBENEF Supprimer la note '(.*)'$")
+    public void cliquerBoutonSupprimerNote(String note) throws InterruptedException {
+        accueil.cliquerBoutonSupprimerNote(note);
+    }
+
+    @Then("^ACCDOCDEPBENEF Vérifier la présence de la note '(.*)'$")
+    public void verifPresenceNote(String note) throws InterruptedException {
+        accueil.verifPresenceNote(note);
+    }
+
+    @Then("^ACCDOCDEPBENEF Vérifier l'absence de la note '(.*)'$")
+    public void verifAbsenceNote(String note) throws InterruptedException {
+        accueil.verifAbsenceNote(note);
+    }
 }

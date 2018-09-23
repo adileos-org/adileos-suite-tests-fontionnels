@@ -201,4 +201,33 @@ public class AccueilDocDepotBeneficiaireSel implements AccueilDocDepotBeneficiai
                 .getAttribute("href");
         webDriver.get(lien);
     }
+
+    private static String getStrXPathNote(String note) {
+        return "//tr/td[2][contains(text(), \"" + note + "\")]";
+    }
+
+    @Override
+    public void saisirNote(String note) throws InterruptedException {
+        SeleniumUtils.findElement(webDriver, By.xpath("//input[@name=\"note\"]")).sendKeys(note);
+    }
+
+    @Override
+    public void cliquerBoutonAjouterNote() throws InterruptedException {
+        SeleniumUtils.findElement(webDriver, By.id("ajout_note")).click();
+    }
+
+    @Override
+    public void cliquerBoutonSupprimerNote(String note) throws InterruptedException {
+        SeleniumUtils.findElement(webDriver, By.xpath(getStrXPathNote(note) + "/parent::tr/td[3]/form")).submit();
+    }
+
+    @Override
+    public void verifPresenceNote(String note) throws InterruptedException {
+        SeleniumUtils.findElement(webDriver, By.xpath(getStrXPathNote(note)));
+    }
+
+    @Override
+    public void verifAbsenceNote(String note) throws InterruptedException {
+        Assert.assertTrue(webDriver.findElements(By.xpath(getStrXPathNote(note))).isEmpty());
+    }
 }
